@@ -1,4 +1,4 @@
-# API- []Consultly
+# API-Consultly
 
 ## RFs (Requisitos funcionais)
 
@@ -14,9 +14,5 @@
 
 ## RNs (Regras de negócio)
 
-Tables:
-
-- [] users
-- [] consultants
-- [] time
-- [] meetings
+- [] O título da reunião deve ser uma junção do nome
+  do consultant com o nome do user
