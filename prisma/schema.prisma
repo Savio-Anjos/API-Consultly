@@ -11,9 +11,10 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id            String @id @default(uuid())
+  name          String
+  email         String @unique
+  password_hash String
 
   meetings Meeting[]
 
@@ -21,9 +22,10 @@ model User {
 }
 
 model Consultant {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id            String @id @default(uuid())
+  name          String
+  email         String @unique
+  password_hash String
 
   availabilities Availability[]
 
