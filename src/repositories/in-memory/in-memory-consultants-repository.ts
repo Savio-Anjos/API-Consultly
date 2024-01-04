@@ -17,4 +17,14 @@ export class InMemoryConsultantsRepository implements ConsultantsRepository {
 
     return consultant;
   }
+
+  public async findByEmail(email: string): Promise<Consultant | null> {
+    const consultant = this.itens.find((item) => item.email === email);
+
+    if (!consultant) {
+      return null;
+    }
+
+    return consultant;
+  }
 }

@@ -1,7 +1,6 @@
 import { User } from "@prisma/client";
 import { UsersRepository } from "./../../repositories/users-repository";
-import { compare, hash } from "bcryptjs";
-import { UserAlreadyExistsError } from "../errors/user-already-exists-error";
+import { compare } from "bcryptjs";
 import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 
 interface AuthenticateUserUseCaseRequest {
