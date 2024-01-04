@@ -1,7 +1,5 @@
-import { Consultant, User } from "@prisma/client";
-import { UsersRepository } from "./../../repositories/users-repository";
-import { compare, hash } from "bcryptjs";
-import { UserAlreadyExistsError } from "../errors/user-already-exists-error";
+import { Consultant } from "@prisma/client";
+import { compare } from "bcryptjs";
 import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 
