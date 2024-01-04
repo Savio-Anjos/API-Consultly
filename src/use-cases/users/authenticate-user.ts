@@ -2,32 +2,34 @@ import { User } from "@prisma/client";
 import { UsersRepository } from "./../../repositories/users-repository";
 import { compare, hash } from "bcryptjs";
 import { UserAlreadyExistsError } from "../errors/user-already-exists-error";
+import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 
-interface AuthenticateUseCaseRequest {
+interface AuthenticateUserUseCaseRequest {
   email: string;
   password: string;
 }
 
-interface AuthenticateUseCaseResponse {
+interface AuthenticateUserUseCaseResponse {
   user: User;
 }
 
-export class AuthenticateUseCase {
+export class AuthenticateUserUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   public async execute({
     email,
     password,
-  }: AuthenticateUseCaseRequest): Promise<AuthenticateUseCaseResponse> {
+  }: AuthenticateUserUseCaseRequest): Promise<AuthenticateUserUseCaseResponse> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new UserAlreadyExistsError();
+      throw new InvalidCredentialsError();
     }
 
-    const doesPasswordMatchs = compare(password, user.password_hash);
+    const doesPasswordMatchs = await compare(password, user.password_hash);
 
     if (!doesPasswordMatchs) {
+      throw new InvalidCredentialsError();
     }
 
     return { user };
