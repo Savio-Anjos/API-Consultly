@@ -20,4 +20,14 @@ export class InMemoryAvailabilityRepository implements AvailabilityRepository {
 
     return availability;
   }
+
+  public async delete(id: string): Promise<Availability[]> {
+    const indexToRemove = this.itens.findIndex((item) => item.id === id);
+
+    if (indexToRemove !== -1) {
+      this.itens.splice(indexToRemove, 1);
+    }
+
+    return this.itens;
+  }
 }

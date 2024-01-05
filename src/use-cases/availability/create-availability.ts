@@ -14,7 +14,7 @@ interface CreateAvailabilityUseCaseResponse {
   availability: Availability;
 }
 
-export class CreateAvailabilityUserUseCase {
+export class CreateAvailabilityUseCase {
   constructor(
     private consultantRepository: ConsultantsRepository,
     private availabilityRepository: AvailabilityRepository

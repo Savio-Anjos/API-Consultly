@@ -1,21 +1,21 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { hash } from "bcryptjs";
-import { CreateAvailabilityUserUseCase } from "./create-availability";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { InMemoryConsultantsRepository } from "@/repositories/in-memory/in-memory-consultants-repository";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 import { InMemoryAvailabilityRepository } from "@/repositories/in-memory/in-memory-availability-repository";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
+import { CreateAvailabilityUseCase } from "./create-availability";
 
 let consultantRepository: ConsultantsRepository;
 let availabilityRepository: AvailabilityRepository;
-let sut: CreateAvailabilityUserUseCase;
+let sut: CreateAvailabilityUseCase;
 
 describe("Create availability Use Case", () => {
   beforeEach(() => {
     consultantRepository = new InMemoryConsultantsRepository();
     availabilityRepository = new InMemoryAvailabilityRepository();
-    sut = new CreateAvailabilityUserUseCase(
+    sut = new CreateAvailabilityUseCase(
       consultantRepository,
       availabilityRepository
     );
