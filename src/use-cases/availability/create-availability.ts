@@ -1,11 +1,7 @@
-import { Availability, User } from "@prisma/client";
-import { UsersRepository } from "./../../repositories/users-repository";
-import { hash } from "bcryptjs";
-import { UserAlreadyExistsError } from "../errors/user-already-exists-error";
+import { Availability } from "@prisma/client";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
-import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
 
 interface CreateAvailabilityUseCaseRequest {
   day: string;
@@ -18,7 +14,7 @@ interface CreateAvailabilityUseCaseResponse {
   availability: Availability;
 }
 
-export class CreateUserUseCase {
+export class CreateAvailabilityUserUseCase {
   constructor(
     private consultantRepository: ConsultantsRepository,
     private availabilityRepository: AvailabilityRepository
@@ -32,7 +28,7 @@ export class CreateUserUseCase {
   }: CreateAvailabilityUseCaseRequest): Promise<CreateAvailabilityUseCaseResponse> {
     const consultant = await this.consultantRepository.findById(consultantId);
 
-    if (consultant) {
+    if (!consultant) {
       throw new ResourceNotFoundError();
     }
 
@@ -42,10 +38,6 @@ export class CreateUserUseCase {
       endTime,
       consultantId,
     });
-
-    if (!availability) {
-      throw new ResourceNotFoundError();
-    }
 
     return { availability };
   }
