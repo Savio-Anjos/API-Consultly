@@ -19,12 +19,12 @@ describe("Authenticate Consultant Use Case", () => {
   it("should be able to authenticate consultant", async () => {
     await consultantRepository.create({
       name: "John Doe",
-      email: "johndoe@ecample.com",
+      email: "johndoe@example.com",
       password_hash: await hash("123456", 6),
     });
 
     const { consultant } = await sut.execute({
-      email: "johndoe@ecample.com",
+      email: "johndoe@example.com",
       password: "123456",
     });
 

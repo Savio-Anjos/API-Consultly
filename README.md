@@ -2,10 +2,10 @@
 
 ## RFs (Requisitos funcionais)
 
-- [ ] Deve ser possível fazer o cadastro como user
-- [ ] Deve ser possível fazer o cadastro como consultant
-- [ ] Deve ser possível fazer login como user
-- [ ] Deve ser possível fazer login como consultant
+- [x] Deve ser possível fazer o cadastro como user
+- [x] Deve ser possível fazer o cadastro como consultant
+- [x] Deve ser possível fazer login como user
+- [x] Deve ser possível fazer login como consultant
 - [ ] Consultants devem poder cadastrar horários
 - [ ] Consultants devem poder editar horários
 - [ ] Consultants devem poder poder deletar horários
