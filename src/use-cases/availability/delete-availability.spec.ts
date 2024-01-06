@@ -16,7 +16,7 @@ describe("Delete availability Use Case", () => {
     sut = new DeleteAvailabilityUseCase(availabilityRepository);
   });
 
-  it("should be able to deçlete availability", async () => {
+  it("should be able to delete availability", async () => {
     const consultant = await consultantRepository.create({
       name: "John Doe",
       email: "jonhdoe@example.com",

@@ -7,7 +7,7 @@
 - [x] Deve ser possível fazer login como user
 - [x] Deve ser possível fazer login como consultant
 - [x] Consultants devem poder cadastrar horários
-- [ ] Consultants devem poder poder deletar horários
+- [x] Consultants devem poder poder deletar horários
 - [ ] Users devem poder marcar reuniões
 - [ ] Users devem poder deletar reuniões
 
