@@ -1,21 +1,23 @@
 import { Availability } from "@prisma/client";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 
-interface DeleteAvailabilityUseCaseRequest {
+interface FindByConsultantIdUseCaseRequest {
   id: string;
 }
 
-interface DeleteAvailabilityUseCaseResponse {
+interface FindByConsultantIdUseCaseResponse {
   availabilities: Availability[];
 }
 
-export class DeleteAvailabilityUseCase {
+export class FindByConsultantIdUseCase {
   constructor(private availabilityRepository: AvailabilityRepository) {}
 
   public async execute({
     id,
-  }: DeleteAvailabilityUseCaseRequest): Promise<DeleteAvailabilityUseCaseResponse> {
-    const availabilities = await this.availabilityRepository.delete(id);
+  }: FindByConsultantIdUseCaseRequest): Promise<FindByConsultantIdUseCaseResponse> {
+    const availabilities = await this.availabilityRepository.findByConsultantId(
+      id
+    );
 
     return { availabilities };
   }
