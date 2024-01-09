@@ -5,7 +5,7 @@ import { InMemoryAvailabilityRepository } from "@/repositories/in-memory/in-memo
 import { DeleteAvailabilityUseCase } from "./delete-availability";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { InMemoryConsultantsRepository } from "@/repositories/in-memory/in-memory-consultants-repository";
-import { FindByConsultantIdUseCase } from "./find-by-consultant-id";
+import { FindByConsultantIdUseCase } from "./filter-by-consultant-id";
 
 let availabilityRepository: AvailabilityRepository;
 let consultantRepository: ConsultantsRepository;
