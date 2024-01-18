@@ -5,7 +5,6 @@ import { UsersRepository } from "@/repositories/users-repository";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 
 interface CreateMeetingUseCaseRequest {
-  title: string;
   startTime: string;
   endTime: string;
   userId: string;
@@ -18,13 +17,12 @@ interface CreateMeetingUseCaseResponse {
 
 export class CreateMeetingUseCase {
   constructor(
-    private meetingsRepository: MeetingsRepository,
     private usersRepository: UsersRepository,
-    private consultantsRepository: ConsultantsRepository
+    private consultantsRepository: ConsultantsRepository,
+    private meetingsRepository: MeetingsRepository
   ) {}
 
   public async execute({
-    title,
     startTime,
     endTime,
     userId,
@@ -36,6 +34,8 @@ export class CreateMeetingUseCase {
     if (!user || !consultant) {
       throw new ResourceNotFoundError();
     }
+
+    const title = `Meeting - ${user.name} - ${consultant.name}`;
 
     const meeting = await this.meetingsRepository.create({
       title,
