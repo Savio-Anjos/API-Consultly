@@ -4,21 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "tsx watch src/server.ts"
+    "start:dev": "tsx watch src/server.ts",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest --dir src/use-cases",
+    "prisma-erd": "prisma generate && npx prisma-erd prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.7.1",
-    "dotenv": "^16.3.1",
-    "fastify": "^4.25.2",
-    "zod": "^3.22.4"
+    "@fastify/cookie": "9.2.0",
+    "@fastify/cors": "8.0.0",
+    "@fastify/jwt": "7.2.4",
+    "@prisma/client": "5.7.1",
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.3.1",
+    "fastify": "^4.24.3",
+    "fastify-cors": "6.1.0",
+    "supertest": "6.3.3",
+    "zod": "3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
-    "prisma": "^5.7.1",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "@types/bcryptjs": "2.4.6",
+    "@types/fastify-cors": "2.1.0",
+    "@types/node": "20.9.0",
+    "prisma": "5.7.1",
+    "prisma-erd-generator": "1.11.2",
+    "tsx": "^4.6.2",
+    "typescript": "5.3.3",
+    "vite-tsconfig-paths": "4.2.2",
+    "vitest": "0.33.0"
   }
 }
