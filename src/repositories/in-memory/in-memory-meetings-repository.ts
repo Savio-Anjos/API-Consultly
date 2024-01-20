@@ -21,13 +21,17 @@ export class InMemoryMeetingRepository implements MeetingsRepository {
     return meeting;
   }
 
-  public async delete(id: string): Promise<Meeting[]> {
+  public async delete(id: string): Promise<Meeting | null> {
     const indexToRemove = this.items.findIndex((item) => item.id === id);
 
+    let meeting: Meeting | null;
+
     if (indexToRemove !== -1) {
-      this.items.splice(indexToRemove, 1);
+      meeting = this.items.splice(indexToRemove, 1)[0];
+    } else {
+      meeting = null;
     }
 
-    return this.items;
+    return meeting;
   }
 }

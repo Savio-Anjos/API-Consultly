@@ -3,7 +3,7 @@ import { AvailabilityRepository } from "../availability-repository";
 import { randomUUID } from "crypto";
 
 export class InMemoryAvailabilityRepository implements AvailabilityRepository {
-  public items: Availability[] = [];
+  public items: Availability[] = [] as Availability[];
 
   public async create(
     data: Prisma.AvailabilityUncheckedCreateInput
@@ -27,13 +27,17 @@ export class InMemoryAvailabilityRepository implements AvailabilityRepository {
     return availabities;
   }
 
-  public async delete(id: string): Promise<Availability[]> {
+  public async delete(id: string): Promise<Availability | null> {
     const indexToRemove = this.items.findIndex((item) => item.id === id);
 
+    let availability: Availability | null;
+
     if (indexToRemove !== -1) {
-      this.items.splice(indexToRemove, 1);
+      availability = this.items.splice(indexToRemove, 1)[0];
+    } else {
+      availability = null;
     }
 
-    return this.items;
+    return availability;
   }
 }

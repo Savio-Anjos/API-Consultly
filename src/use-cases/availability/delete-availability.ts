@@ -1,12 +1,13 @@
 import { Availability } from "@prisma/client";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
+import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 
 interface DeleteAvailabilityUseCaseRequest {
   id: string;
 }
 
 interface DeleteAvailabilityUseCaseResponse {
-  availabilities: Availability[];
+  availability: Availability;
 }
 
 export class DeleteAvailabilityUseCase {
@@ -15,8 +16,12 @@ export class DeleteAvailabilityUseCase {
   public async execute({
     id,
   }: DeleteAvailabilityUseCaseRequest): Promise<DeleteAvailabilityUseCaseResponse> {
-    const availabilities = await this.availabilityRepository.delete(id);
+    const availability = await this.availabilityRepository.delete(id);
 
-    return { availabilities };
+    if (!availability) {
+      throw new ResourceNotFoundError();
+    }
+
+    return { availability };
   }
 }

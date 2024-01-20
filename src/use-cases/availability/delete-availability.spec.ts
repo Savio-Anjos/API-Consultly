@@ -23,13 +23,6 @@ describe("Delete availability Use Case", () => {
       password_hash: await hash("123456", 6),
     });
 
-    await availabilityRepository.create({
-      day: "25",
-      startTime: "18:00",
-      endTime: "19:00",
-      consultantId: consultant.id,
-    });
-
     const { id } = await availabilityRepository.create({
       day: "25",
       startTime: "18:00",
@@ -37,8 +30,8 @@ describe("Delete availability Use Case", () => {
       consultantId: consultant.id,
     });
 
-    const { availabilities } = await sut.execute({ id });
+    const { availability } = await sut.execute({ id });
 
-    expect(availabilities).toHaveLength(1);
+    expect(availability.id).toEqual(expect.any(String));
   });
 });
