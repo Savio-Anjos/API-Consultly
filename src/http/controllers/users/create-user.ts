@@ -20,5 +20,7 @@ export async function createUser(request: FastifyRequest, reply: FastifyReply) {
     if (err instanceof UserAlreadyExistsError) {
       return reply.status(409).send({ message: err.message });
     }
+
+    return reply.status(201).send();
   }
 }
