@@ -2,10 +2,9 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { hash } from "bcryptjs";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 import { InMemoryAvailabilityRepository } from "@/repositories/in-memory/in-memory-availability-repository";
-import { DeleteAvailabilityUseCase } from "./delete-availability";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { InMemoryConsultantsRepository } from "@/repositories/in-memory/in-memory-consultants-repository";
-import { FindByConsultantIdUseCase } from "./filter-by-consultant-id";
+import { FindByConsultantIdUseCase } from "./find-by-consultant-id";
 
 let availabilityRepository: AvailabilityRepository;
 let consultantRepository: ConsultantsRepository;

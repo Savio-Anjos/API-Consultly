@@ -2,7 +2,7 @@ import { Availability, Prisma } from "@prisma/client";
 import { AvailabilityRepository } from "../availability-repository";
 import { prisma } from "@/lib/prisma";
 
-export class PrismaAvailability implements AvailabilityRepository {
+export class PrismaAvailabilityRepository implements AvailabilityRepository {
   public async create(
     data: Prisma.AvailabilityUncheckedCreateInput
   ): Promise<Availability> {
