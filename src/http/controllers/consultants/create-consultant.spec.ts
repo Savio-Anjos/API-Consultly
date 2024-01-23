@@ -1,8 +1,9 @@
 import { app } from "@/app";
+
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import request from "supertest";
 
-describe("Create user (e2e)", () => {
+describe("Create consultant (e2e)", () => {
   beforeAll(() => {
     app.ready();
   });
@@ -11,8 +12,8 @@ describe("Create user (e2e)", () => {
     app.close();
   });
 
-  it("should be able to create user", async () => {
-    const response = await request(app.server).post("/users").send({
+  it("should be able to create consultant", async () => {
+    const response = await request(app.server).post("/consultants").send({
       name: "John Doe",
       email: "jonhdoe@example.com",
       password: "123456",
