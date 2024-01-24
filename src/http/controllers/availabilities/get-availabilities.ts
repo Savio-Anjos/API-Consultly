@@ -1,9 +1,9 @@
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error";
-import { makeGetAvailabilityDetailsUseCase } from "@/use-cases/factories/make-get-availability-details-use-case";
+import { makeGetAvailabilitiesUseCase } from "@/use-cases/factories/make-get-availabilities-use-case";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
-export async function getAvailabilityDetails(
+export async function getAvailabilities(
   request: FastifyRequest,
   reply: FastifyReply
 ) {
@@ -14,7 +14,7 @@ export async function getAvailabilityDetails(
   const { id } = getAvailabilityDetailsParamsSchema.parse(request.params);
 
   try {
-    const getAvailabilityDetailsUseCase = makeGetAvailabilityDetailsUseCase();
+    const getAvailabilityDetailsUseCase = makeGetAvailabilitiesUseCase();
 
     const { availabilities } = await getAvailabilityDetailsUseCase.execute({
       id,
