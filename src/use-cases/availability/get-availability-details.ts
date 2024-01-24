@@ -1,5 +1,6 @@
 import { Availability } from "@prisma/client";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
+import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 
 interface getAvailabilityDetailsUseCaseRequest {
   id: string;
@@ -18,6 +19,10 @@ export class GetAvailabilityDetailsUseCase {
     const availabilities = await this.availabilityRepository.findByConsultantId(
       id
     );
+
+    if (!availabilities) {
+      throw new ResourceNotFoundError();
+    }
 
     return { availabilities };
   }
