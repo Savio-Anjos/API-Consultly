@@ -30,8 +30,8 @@ describe("Create availability Use Case", () => {
 
     const { availability } = await sut.execute({
       day: "25",
-      startTime: "18:00",
-      endTime: "19:00",
+      startTime: "2024-01-23T08:00:00.000Z",
+      endTime: "2024-01-23T09:00:00.000Z",
       consultantId: consultant.id,
     });
 
