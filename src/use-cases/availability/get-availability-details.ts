@@ -1,20 +1,20 @@
 import { Availability } from "@prisma/client";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 
-interface FindByConsultantIdUseCaseRequest {
+interface getAvailabilityDetailsUseCaseRequest {
   id: string;
 }
 
-interface FindByConsultantIdUseCaseResponse {
+interface getAvailabilityDetailsUseCaseResponse {
   availabilities: Availability[];
 }
 
-export class FindByConsultantIdUseCase {
+export class GetAvailabilityDetailsUseCase {
   constructor(private availabilityRepository: AvailabilityRepository) {}
 
   public async execute({
     id,
-  }: FindByConsultantIdUseCaseRequest): Promise<FindByConsultantIdUseCaseResponse> {
+  }: getAvailabilityDetailsUseCaseRequest): Promise<getAvailabilityDetailsUseCaseResponse> {
     const availabilities = await this.availabilityRepository.findByConsultantId(
       id
     );

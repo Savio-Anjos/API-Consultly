@@ -1,9 +1,9 @@
 import { PrismaAvailabilityRepository } from "@/repositories/prisma/prisma-availability-repository";
-import { FindByConsultantIdUseCase } from "../availability/find-by-consultant-id";
+import { GetAvailabilityDetailsUseCase } from "../availability/get-availability-details";
 
 export function makeFindByConsultantIdUseCase() {
   const availabilityRepository = new PrismaAvailabilityRepository();
-  const useCase = new FindByConsultantIdUseCase(availabilityRepository);
+  const useCase = new GetAvailabilityDetailsUseCase(availabilityRepository);
 
   return useCase;
 }
