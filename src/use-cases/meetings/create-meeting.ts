@@ -37,10 +37,13 @@ export class CreateMeetingUseCase {
 
     const title = `Meeting - ${user.name} - ${consultant.name}`;
 
+    const formattedStartTime = new Date(startTime).toISOString();
+    const formattedEndTime = new Date(endTime).toISOString();
+
     const meeting = await this.meetingsRepository.create({
       title,
-      startTime,
-      endTime,
+      startTime: formattedStartTime,
+      endTime: formattedEndTime,
       userId,
       consultantId,
     });
