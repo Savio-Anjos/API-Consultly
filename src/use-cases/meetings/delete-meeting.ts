@@ -1,12 +1,13 @@
 import { Meeting } from "@prisma/client";
 import { MeetingsRepository } from "@/repositories/meetings-repository";
+import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 
 interface DeleteMeetingUseCaseRequest {
   id: string;
 }
 
 interface DeleteMeetingUseCaseResponse {
-  meetings: Meeting[];
+  meeting: Meeting;
 }
 
 export class DeleteMeetingUseCase {
@@ -15,8 +16,12 @@ export class DeleteMeetingUseCase {
   public async execute({
     id,
   }: DeleteMeetingUseCaseRequest): Promise<DeleteMeetingUseCaseResponse> {
-    const meetings = await this.meetingsRepository.delete(id);
+    const meeting = await this.meetingsRepository.delete(id);
 
-    return { meetings };
+    if (!meeting) {
+      throw new ResourceNotFoundError();
+    }
+
+    return { meeting };
   }
 }

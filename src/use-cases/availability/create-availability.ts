@@ -32,10 +32,13 @@ export class CreateAvailabilityUseCase {
       throw new ResourceNotFoundError();
     }
 
+    const formattedStartTime = new Date(startTime).toISOString();
+    const formattedEndTime = new Date(endTime).toISOString();
+
     const availability = await this.availabilityRepository.create({
       day,
-      startTime,
-      endTime,
+      startTime: formattedStartTime,
+      endTime: formattedEndTime,
       consultantId,
     });
 

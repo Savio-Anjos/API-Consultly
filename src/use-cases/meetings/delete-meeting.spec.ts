@@ -33,7 +33,7 @@ describe("Delete Meeting Use Case", () => {
       password_hash: await hash("123456", 6),
     });
 
-    await meetingsRepository.create({
+    const { id } = await meetingsRepository.create({
       title: "Title test",
       startTime: "18:00",
       endTime: "19:00",
@@ -41,16 +41,8 @@ describe("Delete Meeting Use Case", () => {
       consultantId: consultant.id,
     });
 
-    const { id } = await meetingsRepository.create({
-      title: "Title test 2",
-      startTime: "18:00",
-      endTime: "19:00",
-      userId: user.id,
-      consultantId: consultant.id,
-    });
+    const { meeting } = await sut.execute({ id });
 
-    const { meetings } = await sut.execute({ id });
-
-    expect(meetings).toHaveLength(1);
+    expect(meeting.id).toEqual(expect.any(String));
   });
 });

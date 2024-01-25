@@ -9,7 +9,7 @@
 - [x] Consultants devem poder cadastrar horários
 - [x] Consultants devem poder poder deletar horários
 - [x] Users devem poder marcar reuniões
-- [ ] Users devem poder deletar reuniões
+- [x] Users devem poder deletar reuniões
 
 ## RNs (Regras de negócio)
 

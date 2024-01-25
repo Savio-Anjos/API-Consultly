@@ -23,6 +23,12 @@ export class CreateUserUseCase {
   }: CreateUserUseCaseRequest): Promise<CreateUserUseCaseResponse> {
     const password_hash = await hash(password, 6);
 
+    const verifyUserExists = await this.usersRepository.findByEmail(email);
+
+    if (verifyUserExists) {
+      throw new UserAlreadyExistsError();
+    }
+
     const user = await this.usersRepository.create({
       name,
       email,

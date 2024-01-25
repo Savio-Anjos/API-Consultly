@@ -2,19 +2,18 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { hash } from "bcryptjs";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 import { InMemoryAvailabilityRepository } from "@/repositories/in-memory/in-memory-availability-repository";
-import { DeleteAvailabilityUseCase } from "./delete-availability";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { InMemoryConsultantsRepository } from "@/repositories/in-memory/in-memory-consultants-repository";
-import { FindByConsultantIdUseCase } from "./filter-by-consultant-id";
+import { GetAvailabilitiesUseCase } from "./get-availabilities";
 
 let availabilityRepository: AvailabilityRepository;
 let consultantRepository: ConsultantsRepository;
-let sut: FindByConsultantIdUseCase;
+let sut: GetAvailabilitiesUseCase;
 describe("Find By Consultant Id Use Case", () => {
   beforeEach(() => {
     availabilityRepository = new InMemoryAvailabilityRepository();
     consultantRepository = new InMemoryConsultantsRepository();
-    sut = new FindByConsultantIdUseCase(availabilityRepository);
+    sut = new GetAvailabilitiesUseCase(availabilityRepository);
   });
 
   it("should be able to list availabities by consultant id", async () => {
