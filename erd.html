@@ -1,0 +1,44 @@
+
+    <!DOCTYPE html>
+    <div class="mermaid">
+      erDiagram
+User {
+	String id
+	String name
+	String email
+	String password_hash
+	Meeting meetings
+}
+Consultant {
+	String id
+	String name
+	String email
+	String password_hash
+	Availability availabilities
+	Meeting meetings
+}
+Meeting {
+	String id
+	String title
+	DateTime startTime
+	DateTime endTime
+	String userId
+	String consultantId
+}
+Meeting }o--|| User : user
+Meeting }o--|| Consultant : consultant
+Availability {
+	String id
+	String day
+	DateTime startTime
+	DateTime endTime
+	String consultantId
+}
+Availability }o--|| Consultant : consultant
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  
