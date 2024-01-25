@@ -40,8 +40,8 @@ describe("Create Meeting Use Case", () => {
     });
 
     const { meeting } = await sut.execute({
-      startTime: "08:00",
-      endTime: "09:00",
+      startTime: "2024-01-23T08:00:00.000Z",
+      endTime: "2024-01-23T09:00:00.000Z",
       userId: user.id,
       consultantId: consultant.id,
     });
