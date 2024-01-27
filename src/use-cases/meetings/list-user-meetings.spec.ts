@@ -3,7 +3,6 @@ import { hash } from "bcryptjs";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { InMemoryConsultantsRepository } from "@/repositories/in-memory/in-memory-consultants-repository";
 import { UsersRepository } from "@/repositories/users-repository";
-import { DeleteMeetingUseCase } from "./delete-meeting";
 import { MeetingsRepository } from "@/repositories/meetings-repository";
 import { InMemoryMeetingRepository } from "@/repositories/in-memory/in-memory-meetings-repository";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
