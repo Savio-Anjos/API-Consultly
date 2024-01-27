@@ -2,20 +2,20 @@ import { Availability } from "@prisma/client";
 import { AvailabilityRepository } from "@/repositories/availability-repository";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 
-interface getAvailabilitiesUseCaseRequest {
+interface ListConsultantAvailabilitiesUseCaseRequest {
   id: string;
 }
 
-interface getAvailabilitiesUseCaseResponse {
+interface ListConsultantAvailabilitiesUseCaseResponse {
   availabilities: Availability[];
 }
 
-export class GetAvailabilitiesUseCase {
+export class ListConsultantAvailabilitiesUseCase {
   constructor(private availabilityRepository: AvailabilityRepository) {}
 
   public async execute({
     id,
-  }: getAvailabilitiesUseCaseRequest): Promise<getAvailabilitiesUseCaseResponse> {
+  }: ListConsultantAvailabilitiesUseCaseRequest): Promise<ListConsultantAvailabilitiesUseCaseResponse> {
     const availabilities = await this.availabilityRepository.findByConsultantId(
       id
     );
