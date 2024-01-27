@@ -42,7 +42,7 @@ export class InMemoryMeetingRepository implements MeetingsRepository {
   }
 
   public async findByUserId(id: string): Promise<Meeting[]> {
-    const meetings = this.items.filter((item) => item.id === id);
+    const meetings = this.items.filter((item) => item.userId === id);
 
     return meetings;
   }
