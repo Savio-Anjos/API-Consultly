@@ -33,7 +33,7 @@ describe("List user meetings (e2e)", () => {
     });
 
     const response = await request(app.server)
-      .get(`/meetings/${userId}`)
+      .get(`/meetings/user/${userId}`)
       .set("Authorization", `Bearer ${token}`);
 
     expect(response.statusCode).toEqual(200);
