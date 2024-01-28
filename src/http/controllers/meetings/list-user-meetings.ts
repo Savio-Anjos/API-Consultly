@@ -8,16 +8,16 @@ export async function listUserMeetings(
   reply: FastifyReply
 ) {
   const listUserMeetingsParamsSchema = z.object({
-    userId: z.string().uuid(),
+    id: z.string().uuid(),
   });
 
-  const { userId } = listUserMeetingsParamsSchema.parse(request.body);
+  const { id } = listUserMeetingsParamsSchema.parse(request.params);
 
   try {
     const listUserMeetingsUseCase = makeListUserMeetingsUseCase();
 
     await listUserMeetingsUseCase.execute({
-      userId,
+      userId: id,
     });
 
     return reply.status(200).send();

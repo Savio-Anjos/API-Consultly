@@ -7,5 +7,5 @@ import { listUserMeetings } from "./list-user-meetings";
 export async function meetingsRoutes(app: FastifyInstance) {
   app.post("/meetings", { onRequest: verifyJWT }, createMeeting);
   app.delete("/meetings/:id", { onRequest: verifyJWT }, deleteMeeting);
-  app.get("meetings", { onRequest: verifyJWT }, listUserMeetings);
+  app.get("/meetings/:id", { onRequest: verifyJWT }, listUserMeetings);
 }
