@@ -1,4 +1,4 @@
-import { Meeting, Prisma } from "@prisma/client";
+import { Availability, Meeting, Prisma } from "@prisma/client";
 import { MeetingsRepository } from "../meetings-repository";
 import { prisma } from "@/lib/prisma";
 
@@ -22,32 +22,23 @@ export class PrismaMeetingsRepository implements MeetingsRepository {
     return meeting;
   }
 
-  findByConsultantId(
-    id: string
-  ): Promise<
-    {
-      id: string;
-      title: string;
-      startTime: Date;
-      endTime: Date;
-      userId: string;
-      consultantId: string;
-    }[]
-  > {
-    throw new Error("Method not implemented.");
+  public async findByConsultantId(id: string): Promise<Meeting[]> {
+    const meetings = await prisma.meeting.findMany({
+      where: {
+        consultantId: id,
+      },
+    });
+
+    return meetings;
   }
-  findByUserId(
-    id: string
-  ): Promise<
-    {
-      id: string;
-      title: string;
-      startTime: Date;
-      endTime: Date;
-      userId: string;
-      consultantId: string;
-    }[]
-  > {
-    throw new Error("Method not implemented.");
+
+  public async findByUserId(id: string): Promise<Meeting[]> {
+    const meetings = await prisma.meeting.findMany({
+      where: {
+        userId: id,
+      },
+    });
+
+    return meetings;
   }
 }
