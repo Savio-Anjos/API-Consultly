@@ -21,4 +21,33 @@ export class PrismaMeetingsRepository implements MeetingsRepository {
 
     return meeting;
   }
+
+  findByConsultantId(
+    id: string
+  ): Promise<
+    {
+      id: string;
+      title: string;
+      startTime: Date;
+      endTime: Date;
+      userId: string;
+      consultantId: string;
+    }[]
+  > {
+    throw new Error("Method not implemented.");
+  }
+  findByUserId(
+    id: string
+  ): Promise<
+    {
+      id: string;
+      title: string;
+      startTime: Date;
+      endTime: Date;
+      userId: string;
+      consultantId: string;
+    }[]
+  > {
+    throw new Error("Method not implemented.");
+  }
 }
