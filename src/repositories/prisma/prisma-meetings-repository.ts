@@ -41,4 +41,18 @@ export class PrismaMeetingsRepository implements MeetingsRepository {
 
     return meetings;
   }
+
+  public async findByUserIdAndConsultantId(
+    userId: string,
+    consultantId: string
+  ): Promise<Meeting[]> {
+    const meetings = await prisma.meeting.findMany({
+      where: {
+        userId: userId,
+        consultantId: consultantId,
+      },
+    });
+
+    return meetings;
+  }
 }
