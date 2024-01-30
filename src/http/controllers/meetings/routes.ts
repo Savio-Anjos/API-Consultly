@@ -4,6 +4,7 @@ import { createMeeting } from "./create-meeting";
 import { deleteMeeting } from "./delete-meeting";
 import { listUserMeetings } from "./list-user-meetings";
 import { listConsultantMeetings } from "./list-consultant-meetings";
+import { listUserAndConsultantMeetings } from "./list-user-and-consultant-meetings";
 
 export async function meetingsRoutes(app: FastifyInstance) {
   app.post("/meetings", { onRequest: verifyJWT }, createMeeting);
@@ -13,5 +14,10 @@ export async function meetingsRoutes(app: FastifyInstance) {
     "/meetings/consultant/:id",
     { onRequest: verifyJWT },
     listConsultantMeetings
+  );
+  app.get(
+    "/meetings/:userId/:consultantId",
+    { onRequest: verifyJWT },
+    listUserAndConsultantMeetings
   );
 }

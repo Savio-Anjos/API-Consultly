@@ -16,11 +16,11 @@ export async function listConsultantMeetings(
   try {
     const listConsultantMeetingsUseCase = makeListConsultantMeetingsUseCase();
 
-    await listConsultantMeetingsUseCase.execute({
+    const { meetings } = await listConsultantMeetingsUseCase.execute({
       consultantId: id,
     });
 
-    return reply.status(200).send();
+    return reply.status(200).send({ meetings });
   } catch (err) {
     if (err instanceof ResourceNotFoundError) {
       return reply.status(404).send({ message: err.message });
