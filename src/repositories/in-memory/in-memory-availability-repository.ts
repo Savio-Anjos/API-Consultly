@@ -21,12 +21,6 @@ export class InMemoryAvailabilityRepository implements AvailabilityRepository {
     return availability;
   }
 
-  public async findByConsultantId(id: string): Promise<Availability[]> {
-    const availabities = this.items.filter((item) => item.consultantId === id);
-
-    return availabities;
-  }
-
   public async delete(id: string): Promise<Availability | null> {
     const indexToRemove = this.items.findIndex((item) => item.id === id);
 
@@ -39,5 +33,11 @@ export class InMemoryAvailabilityRepository implements AvailabilityRepository {
     }
 
     return availability;
+  }
+
+  public async findByConsultantId(id: string): Promise<Availability[]> {
+    const availabities = this.items.filter((item) => item.consultantId === id);
+
+    return availabities;
   }
 }

@@ -34,4 +34,27 @@ export class InMemoryMeetingRepository implements MeetingsRepository {
 
     return meeting;
   }
+
+  public async findByConsultantId(id: string): Promise<Meeting[]> {
+    const meetings = this.items.filter((item) => item.consultantId === id);
+
+    return meetings;
+  }
+
+  public async findByUserId(id: string): Promise<Meeting[]> {
+    const meetings = this.items.filter((item) => item.userId === id);
+
+    return meetings;
+  }
+
+  public async findByUserIdAndConsultantId(
+    userId: string,
+    consultantId: string
+  ): Promise<Meeting[]> {
+    const meetings = this.items.filter(
+      (item) => item.userId === userId && item.consultantId === consultantId
+    );
+
+    return meetings;
+  }
 }
