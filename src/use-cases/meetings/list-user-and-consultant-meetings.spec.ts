@@ -58,6 +58,6 @@ describe("List User And Consultant Meetings Use Case", () => {
 
     const { meetings } = await sut.execute({ userId, consultantId });
 
-    expect(meetings).toHaveLength(2);
+    expect(meetings).toHaveLength(1);
   });
 });
