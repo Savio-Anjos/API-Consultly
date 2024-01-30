@@ -4,16 +4,16 @@ import { AvailabilityRepository } from "@/repositories/availability-repository";
 import { InMemoryAvailabilityRepository } from "@/repositories/in-memory/in-memory-availability-repository";
 import { ConsultantsRepository } from "@/repositories/consultants-repository";
 import { InMemoryConsultantsRepository } from "@/repositories/in-memory/in-memory-consultants-repository";
-import { GetAvailabilitiesUseCase } from "./get-availabilities";
+import { ListConsultantAvailabilitiesUseCase } from "./list-consultant-availabilities";
 
 let availabilityRepository: AvailabilityRepository;
 let consultantRepository: ConsultantsRepository;
-let sut: GetAvailabilitiesUseCase;
+let sut: ListConsultantAvailabilitiesUseCase;
 describe("Find By Consultant Id Use Case", () => {
   beforeEach(() => {
     availabilityRepository = new InMemoryAvailabilityRepository();
     consultantRepository = new InMemoryConsultantsRepository();
-    sut = new GetAvailabilitiesUseCase(availabilityRepository);
+    sut = new ListConsultantAvailabilitiesUseCase(availabilityRepository);
   });
 
   it("should be able to list availabities by consultant id", async () => {
