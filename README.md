@@ -9,7 +9,7 @@
 
 ## 🚀 Tecnologias
 
-Esse projeto está utilizando as seguintes tecnologias:
+Este projeto está utilizando as seguintes tecnologias:
 
 - [Node](https://nodejs.org/en)
 - [Fastify](https://fastify.dev/)
@@ -19,10 +19,10 @@ Esse projeto está utilizando as seguintes tecnologias:
 
 ## 📜 Descrição
 
-Esse projeto busca tentar fascilitar o contato entre consultores/recrutadores
-e candidados. Nele os consultores cadastram os horários disponíveis para reuniões
-e os candidatos marcam reunões nesses horários.
-Nele foi utilizado padrões de arquitetura de software e foram desenvolvidos testes unitários e E2E. Para garantir a qualidade foi configurado o ambiente CI com github actions.
+Este projeto busca facilitar o contato entre consultores/recrutadores
+e candidatos. Nele, os consultores cadastram os horários disponíveis para reuniões
+e os candidatos marcam reuniões nesses horários.
+Nele, foram utilizados padrões de arquitetura de software e foram desenvolvidos testes unitários e E2E. Para garantir a qualidade, o ambiente CI foi configurado com GitHub Actions.
 
 ## ⚙️ Como funciona?
 
@@ -32,13 +32,13 @@ Nele foi utilizado padrões de arquitetura de software e foram desenvolvidos tes
 - [x] É possível fazer o cadastro como consultor.
 - [x] É possível fazer login como usuário.
 - [x] É possível fazer login como consultor.
-- [x] É possível listar todos as horários de um consultor.
+- [x] É possível listar todos os horários de um consultor.
 - [x] É possível listar todas as reuniões de um usuário.
-- [x] É possivel listar todas as reuniões de um consultor.
-- [x] É possivel listar todas as reuniões de um determinado usuário e consultor.
+- [x] É possível listar todas as reuniões de um consultor.
+- [x] É possível listar todas as reuniões de um determinado usuário e consultor.
 - [x] Consultores podem cadastrar horários.
 - [x] Consultores podem deletar horários.
-- [x] Usuários podem marcar reuniões
+- [x] Usuários podem marcar reuniões.
 - [x] Usuários podem deletar reuniões.
 
 ## RNs (Regras de negócio)
@@ -76,52 +76,8 @@ A seguir estão as principais rotas da aplicação:
 
 ## 🎲 Quer customizar o projeto?
 
-### Clone esse repositório
+### Clone este repositório
 
 ```bash
 git clone https://github.com/Savio-Anjos/API-Consultly.git
 ```
-
-### Navegue até o diretório do projeto
-
-```bash
-cd API-Consultly
-```
-
-### Instale as dependências
-
-```bash
-npm i
-```
-
-```bash
-yarn
-```
-
-### Execute o docker compose
-
-```bash
-docker compose up
-```
-
-### Execute o docker
-
-```bash
-docker start
-```
-
-### Rode as migrations
-
-```bash
-npx prisma migrate dev
-```
-
-### Inicie a aplicação
-
-```bash
-npm run start:dev
-```
-
----
-
-<p>Criado com 💙 por <a href='https://github.com/Savio-Anjos/' target='_blank'>Sávio Anjos</a></p>
