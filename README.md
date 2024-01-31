@@ -22,6 +22,7 @@ Esse projeto está utilizando as seguintes tecnologias:
 Esse projeto busca tentar fascilitar o contato entre consultores/recrutadores
 e candidados. Nele os consultores cadastram os horários disponíveis para reuniões
 e os candidatos marcam reunões nesses horários.
+Nele foi utilizado padrões de arquitetura de software e foram desenvolvidos testes unitários e E2E. Para garantir a qualidade foi configurado o ambiente CI com github actions.
 
 ## ⚙️ Como funciona?
 
