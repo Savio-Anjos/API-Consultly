@@ -27,23 +27,23 @@ e os candidatos marcam reunões nesses horários.
 
 ## RFs (Requisitos funcionais)
 
-- [x] É possível fazer o cadastro como user.
-- [x] É possível fazer o cadastro como consultant.
-- [x] É possível fazer login como user.
-- [x] É possível fazer login como consultant.
-- [x] É possível listar todos as horários de um consultant.
+- [x] É possível fazer o cadastro como usuário.
+- [x] É possível fazer o cadastro como consultor.
+- [x] É possível fazer login como usuário.
+- [x] É possível fazer login como consultor.
+- [x] É possível listar todos as horários de um consultor.
 - [x] É possível listar todas as reuniões de um usuário.
-- [x] É possivel listar todas as reuniões de um consultant.
-- [x] É possivel listar todas as reuniões de um determinado usuário e consultant.
-- [x] Consultants podem cadastrar horários.
-- [x] Consultants podem deletar horários.
-- [x] Users podem marcar reuniões
-- [x] Users podem deletar reuniões.
+- [x] É possivel listar todas as reuniões de um consultor.
+- [x] É possivel listar todas as reuniões de um determinado usuário e consultor.
+- [x] Consultores podem cadastrar horários.
+- [x] Consultores podem deletar horários.
+- [x] Usuários podem marcar reuniões
+- [x] Usuários podem deletar reuniões.
 
 ## RNs (Regras de negócio)
 
 - [x] O título da reunião é uma junção do nome
-      do consultant com o nome do user.
+      do consultor com o nome do usuário.
 
 ## Rotas da aplicação
 
