@@ -76,8 +76,52 @@ A seguir estão as principais rotas da aplicação:
 
 ## 🎲 Quer customizar o projeto?
 
-### Clone este repositório
+### Clone esse repositório
 
 ```bash
 git clone https://github.com/Savio-Anjos/API-Consultly.git
 ```
+
+### Navegue até o diretório do projeto
+
+```bash
+cd API-Consultly
+```
+
+### Instale as dependências
+
+```bash
+npm i
+```
+
+```bash
+yarn
+```
+
+### Execute o docker compose
+
+```bash
+docker compose up
+```
+
+### Execute o docker
+
+```bash
+docker start
+```
+
+### Rode as migrations
+
+```bash
+npx prisma migrate dev
+```
+
+### Inicie a aplicação
+
+```bash
+npm run start:dev
+```
+
+---
+
+<p>Criado com 💙 por <a href='https://github.com/Savio-Anjos/' target='_blank'>Sávio Anjos</a></p>
